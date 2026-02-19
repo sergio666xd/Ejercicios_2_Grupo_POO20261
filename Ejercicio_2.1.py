@@ -77,7 +77,7 @@ class Persona:
                     break
                 except ValueError:
                     continue
-        return Persona(nombre, apellidos, documento, año_nacimiento)
+        return Persona(nombre, apellidos, documento, genero, pais_nacimiento, año_nacimiento)
 
 
 if __name__ == "__main__":
