@@ -1,5 +1,5 @@
 class Persona:
-    def __init__(self, nombre:str, apellidos:str, genero:str, documento:str, pais_nacimiento:str, año_nacimiento:int):
+    def __init__(self, nombre:str, apellidos:str, documento:str, genero:str, pais_nacimiento:str, año_nacimiento:int):
         self.nombre = nombre
         self.apellidos = apellidos
         self.documento = documento
@@ -84,10 +84,13 @@ if __name__ == "__main__":
     N = int(input("Ingrese el número de personas a ingresar: "))
     personas = []
     for i in range(N):
-        print(f"Ingrese los datos de la persona {i+1}:")
+        print(f"\n-----------------------------")
+        print(f"Ingrese los datos de la persona {i+1}:\n")
         p = Persona.nueva_persona()
         personas.append(p)
 
+    print("\n-----------------------------")
+    
     for i, p in enumerate(personas):
         print(f"Persona {i+1}:")
         p.imprimir()
