@@ -1,3 +1,5 @@
+from tkinter import *
+
 class Persona:
     def __init__(self, nombre:str, apellidos:str, documento:str, genero:str, pais_nacimiento:str, año_nacimiento:int):
         self.nombre = nombre
@@ -8,10 +10,10 @@ class Persona:
         self.año_nacimiento = año_nacimiento
 
     def imprimir(self):
-        if self.genero == "M":
-            self.genero = "Masculino"
-        elif self.genero == "F":
-            self.genero = "Femenino"
+        if self.genero == "H":
+            self.genero = "Hombre"
+        elif self.genero == "M":
+            self.genero = "Mujer"
         print(f"Nombre = {self.nombre}\nApellidos = {self.apellidos}\nGenero = {self.genero}\nDocumento de Identidad = {self.documento}\nPais de nacimiento = {self.pais_nacimiento}\nAño de nacimiento = {self.año_nacimiento}")
 
     def nueva_persona():
@@ -49,12 +51,12 @@ class Persona:
                     break
             return None
         try:
-            genero = input("Ingrese el género (M/F): ")
+            genero = input("Ingrese el género (H/M): ")
         except Exception as e:
             while True:
                 print("Error al ingresar el género. Intente nuevamente.")
-                genero = input("Ingrese el género (M/F): ")
-                if genero.upper() in ["M", "F"]:
+                genero = input("Ingrese el género (H/M): ")
+                if genero.upper() in ["H", "M"]:
                     break
             return None
         try:
@@ -81,8 +83,22 @@ class Persona:
 
 
 if __name__ == "__main__":
-    N = int(input("Ingrese el número de personas a ingresar: "))
     personas = []
+    personas.append(Persona("Juan", "Pérez", "12345678", "H", "Argentina", 1990))
+    personas.append(Persona("María", "Gómez", "87654321", "M", "España", 1985))
+
+    for i, p in enumerate(personas):
+        print(f"Persona {i+1}:")
+        p.imprimir()
+        if i < len(personas) - 1:
+            print("-----------------------------")
+
+    print("-----------------------------\nIngresar más Personas\n-----------------------------")
+    try:
+        N = int(input("Ingrese el número de personas a ingresar: "))
+    except ValueError:
+        print("Error: Saliendo del programa...")
+        exit()
     for i in range(N):
         print(f"\n-----------------------------")
         print(f"Ingrese los datos de la persona {i+1}:\n")
