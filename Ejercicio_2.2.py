@@ -1,5 +1,12 @@
+from enum import Enum
+
+class TipoPlaneta(Enum):
+    GASEOSO = "GASEOSO"
+    TERRESTRE = "TERRESTRE"
+    ENANO = "ENANO"
+
 class Planeta:
-	def __init__(self, nombre:str, cantidad_satelites:int, masa:float, volomen:float, diametro: int, distancia_sol:int, tipo:str, es_observable:bool, periodo_orbital:float, peroido_rotacional:float):
+	def __init__(self, nombre:str, cantidad_satelites:int, masa:float, volomen:float, diametro: int, distancia_sol:int, tipo:TipoPlaneta, es_observable:bool, periodo_orbital:float, peroido_rotacional:float):
 		self.nombre = nombre
 		self.cantidad_satelites = cantidad_satelites
 		self.masa = masa
@@ -78,13 +85,13 @@ class Planeta:
 					break
 			return None
 		try:
-			tipo = input("Ingrese el tipo de planeta (TERRESTRE/GASEOSO): ")
+			tipo = input("Ingrese el tipo de planeta (TERRESTRE/GASEOSO/ENANO): ")
 		except Exception as e:
 			while True:
 				print("Error al ingresar el tipo de planeta. Intente nuevamente.")
-				tipo = input("Ingrese el tipo de planeta (TERRESTRE/GASEOSO): ")
-				if tipo.upper() in ["TERRESTRE", "GASEOSO"]:
-					tipo = tipo.upper()
+				tipo = input("Ingrese el tipo de planeta (TERRESTRE/GASEOSO/ENANO): ")
+				if tipo.upper() in ["TERRESTRE", "GASEOSO", "ENANO"]:
+					tipo = TipoPlaneta(tipo.upper())
 					break
 			return None
 		try:
