@@ -1,5 +1,3 @@
-from tkinter import *
-
 class Persona:
     def __init__(self, nombre:str, apellidos:str, documento:str, genero:str, pais_nacimiento:str, año_nacimiento:int):
         self.nombre = nombre
